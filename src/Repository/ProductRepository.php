@@ -23,10 +23,7 @@ class ProductRepository extends ServiceEntityRepository
     public function Create(ProductDTO $productDTO): Product
     {       
         $productcat = $this->CategoryRepository->find($productDTO->category);       
-        if(!$productcat) {
-            throw new \InvalidArgumentException('category not found');
-        }
-
+      
         $products = new Product();
         $products->setName($productDTO->name);
         $products->setDescription($productDTO->description);
